@@ -27,7 +27,7 @@ exports.my_port = process.env.PORT || 40080;
 
 exports.SESSION_TIME = 3600*1000; //one hour
 
-exports.recaptcha_pub_key = "6LeX5SQUAAAAAKTieM68Sz4MECO6kJXsSR7_sGP1";
+exports.recaptcha_pub_key = "6LdtfmAUAAAAADGXB--jZ2eCgGV08HF84mtxC5Go";
 const MAX_IP_CONNECTIONS = 100;
 
 exports.dbTables = [
