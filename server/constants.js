@@ -1,10 +1,10 @@
 'use strict';
 
-const SUPPORT_EMAIL = 'support@email.com';
-const NOREPLY_EMAIL = 'no-reply@email.com';
+const SUPPORT_EMAIL = 'tr0j4n9@flamecoin.co';
+const NOREPLY_EMAIL = 'no-reply@flamecoin.co';
 
-const MAILER_NAME = 'OpenTrade Mailer';
-const START_MESSAGE = 'OpenTrade started!';
+const MAILER_NAME = 'Flamecoin Exchange Mailer';
+const START_MESSAGE = 'Flamecoin Exchange started!';
 
 const DashForks = ['DASH', 'WAVI'];
 
