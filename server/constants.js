@@ -16,8 +16,8 @@ exports.share = {
    
    my_portSSL: 443,
    
-   TRADE_MAIN_COIN: "Marycoin",
-   TRADE_MAIN_COIN_TICKER: "MC",
+   TRADE_MAIN_COIN: "Flamecoin",
+   TRADE_MAIN_COIN_TICKER: "FLA",
    TRADE_DEFAULT_PAIR: "Litecoin"
 };
 
