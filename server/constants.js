@@ -14,7 +14,7 @@ exports.share = {
    tradeEnabled: false,
    recaptchaEnabled: true,
    
-   my_portSSL: 40443,
+   my_portSSL: 443,
    
    TRADE_MAIN_COIN: "Marycoin",
    TRADE_MAIN_COIN_TICKER: "MC",
