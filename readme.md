@@ -2,6 +2,8 @@
 
 Life version https://exchange.flamecoin.co
 
+** If you need any help, please email this address: tr0j4n9@flamecoin.co **
+
 Step-by-step install instructions:
 
 1. Register on the VPS hosting like this https://m.do.co/c/7dcf65e76b1b (Free $10 Credit if you use that link)
