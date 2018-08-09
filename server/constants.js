@@ -7,11 +7,12 @@ const MAILER_NAME = 'Flamecoin Exchange Mailer';
 const START_MESSAGE = 'Flamecoin Exchange started!';
 
 const DashForks = ['DASH', 'WAVI'];
+exports.FIAT_ID = [28];
 
 exports.DEBUG_LOG = false;
 
 exports.share = {
-   tradeEnabled: false,
+   tradeEnabled: true,
    recaptchaEnabled: true,
    
    my_portSSL: 443,
@@ -29,6 +30,8 @@ exports.SESSION_TIME = 3600*1000; //one hour
 
 exports.recaptcha_pub_key = "6LdtfmAUAAAAADGXB--jZ2eCgGV08HF84mtxC5Go";
 const MAX_IP_CONNECTIONS = 100;
+
+const DATABASE_PATH = './database/sqlite.db';
 
 exports.dbTables = [
    {
@@ -169,6 +172,20 @@ exports.dbTables = [
            ['time', 'INTEGER'],
            ['comment', 'TEXT']
         ]
+   },
+   {
+       'name' : 'coupons',
+       'cols' : [
+           ['uid', 'TEXT UNIQUE'],
+           ['UserFrom', 'INTEGER'],
+           ['timeCreated', 'INTEGER'],
+           ['amount', 'TEXT'],
+           ['coin', 'TEXT'],
+           ['timeClosed', 'INTEGER'],
+           ['UserTo', 'INTEGER'],
+           ['comment', 'TEXT']
+        ],
+        'commands': 'PRIMARY KEY (uid)'
    }
 ];
 
@@ -197,17 +214,17 @@ exports.ExchangeBalanceAccountID = 0;
 
 exports.Roles = ['Administrator', 'Support', 'User'];
 
-exports.dbName = './database/sqlite.db';
-
 ////////////////////////////////////////////////////////////////////////////////////
 // Private constants
 const PRIVATE = require("./modules/private_constants");
+exports.dbName = PRIVATE.DATABASE_PATH || DATABASE_PATH;
 exports.password_private_suffix = PRIVATE.password_private_suffix;
 exports.recaptcha_priv_key = PRIVATE.recaptcha_priv_key;
 exports.SUPPORT_EMAIL = PRIVATE.SUPPORT_EMAIL || SUPPORT_EMAIL;
 exports.NOREPLY_EMAIL = PRIVATE.NOREPLY_EMAIL || NOREPLY_EMAIL;
 exports.START_MESSAGE = PRIVATE.START_MESSAGE || START_MESSAGE;
 exports.MAILER_NAME = PRIVATE.MAILER_NAME || MAILER_NAME;
+
 
 exports.DONATORS = [
     {userID: 1, percent: 99},
