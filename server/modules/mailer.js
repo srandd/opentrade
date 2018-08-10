@@ -1,7 +1,19 @@
 'use strict';
 
 const g_constants = require("../constants.js");
-const sendmail = require('sendmail')();
+var nodemailer = require('nodemailer');
+
+// Create the transporter with the required configuration for Gmail
+// change the user and pass !
+var mailerTransport = nodemailer.createTransport({
+    host: g_constants.MAILER_SMTP_HOST,
+    port: g_constants.MAILER_SMTP_PORT,
+    secure: g_constants.MAILER_SMTP_SECURE, // use SSL
+    auth: {
+        user: g_constants.MAILER_SMTP_USER,
+        pass: g_constants.MAILER_SMTP_PASS
+    }
+});
 
 
 exports.SendSignupConfirmation = function(email, url, urlCheck, callback)
@@ -23,7 +35,7 @@ exports.SendSignupConfirmation = function(email, url, urlCheck, callback)
     try
     {
         let isSent = false;
-        sendmail({
+        mailerTransport.sendMail({
             from: 'Flamecoin Exchange Mailer <'+g_constants.NOREPLY_EMAIL+'>',
             sender: g_constants.NOREPLY_EMAIL,
             to: unescape(email),
@@ -68,7 +80,7 @@ exports.SendPasswordResetConfirmation = function(email, user, url, urlCheck, cal
     try
     {
         let isSent = false;
-        sendmail({
+        mailerTransport.sendMail({
             from: 'Flamecoin Exchange Mailer <'+g_constants.NOREPLY_EMAIL+'>',
             to: unescape(email),
             subject: subject,
@@ -99,7 +111,7 @@ exports.SendTicket = function(ticket, callback)
     try
     {
         let isSent = false;
-        sendmail({
+        mailerTransport.sendMail({
             from: 'Flamecoin Exchange Mailer <'+g_constants.NOREPLY_EMAIL+'>',
             sender: g_constants.NOREPLY_EMAIL,
             to: g_constants.SUPPORT_EMAIL,
@@ -142,7 +154,7 @@ exports.SendWithdrawConfirmation = function(email, user, url, urlCheck, callback
     try
     {
         let isSent = false;
-        sendmail({
+        mailerTransport.sendMail({
             from: 'Flamecoin Exchange Mailer <'+g_constants.NOREPLY_EMAIL+'>',
             sender: g_constants.NOREPLY_EMAIL,
             to: unescape(email),
@@ -172,7 +184,7 @@ exports.SendStartAppNotification = function(callback)
     try
     {
         let isSent = false;
-        sendmail({
+        mailerTransport.sendMail({
             from: 'Flamecoin Exchange Mailer <'+g_constants.NOREPLY_EMAIL+'>',
             sender: g_constants.NOREPLY_EMAIL,
             to: g_constants.SUPPORT_EMAIL,
@@ -202,7 +214,7 @@ exports.SendAdminNotify = function(message, callback)
     try
     {
         let isSent = false;
-        sendmail({
+        mailerTransport.sendMail({
             from: 'Flamecoin Exchange Mailer <'+g_constants.NOREPLY_EMAIL+'>',
             sender: g_constants.NOREPLY_EMAIL,
             to: g_constants.SUPPORT_EMAIL,
