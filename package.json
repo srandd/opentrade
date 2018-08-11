@@ -9,7 +9,7 @@
   "dependencies": {
     "express": "latest",
 	"ws": "latest",
-	"sendmail": "latest",
+	"nodemailer": "latest",
 	"sqlite3": "latest",
 	"ejs": "latest",
 	"cors": "latest",
