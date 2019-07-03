@@ -1,34 +1,19 @@
 # OpenTrade is the best opensource cryptocurrency exchange!
 
-Life version https://exchange.flamecoin.co
-
-** If you need any help, please email this address: tr0j4n9@flamecoin.co **
-
-Step-by-step install instructions:
-
-1. Register on the VPS hosting like this https://m.do.co/c/7dcf65e76b1b (Free $10 Credit if you use that link)
-2. Create "Droplet" Ubuntu 16 x64 / 1GB / 1vCPU / 25 GB SSD
-3. Log in to Droplet console over SSH
-4
+Live version https://exchange.flamecoin.co
 
 ```
-sudo apt-get update
-sudo apt-get install build-essential libssl-dev curl -y
-curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
-bash install_nvm.sh
-sudo reboot
-
-nvm install 6.0.0
-
-git clone https://github.com/3s3s/opentrade.git
+git clone https://github.com/srandd/opentrade
 cd opentrade
-
-sudo npm install 
-
-mkdir ~/opentrade/server/database
+npm install
+node main.js
 ```
 
-## Here is an example of file ~/opentrade/server/modules/private_constants.js Edit as per your config.
+In the browser open up https://localhost:443
+
+The first registered user will be exchange administrator. 
+
+## Edit ~/opentrade/server/modules/private_constants.js !!
 
 ```
 'use strict';
@@ -44,18 +29,6 @@ exports.walletspassphrase = {
     'DOGE' : 'LONG_RANDOM_STRING4'
 };
 ```
-
-**After all you can run exchange**
-
-```
-cd  ~/opentrade/server
-sudo node main.js
-```
-
-In the browser address string type https://127.0.0.1:40443
-You will see OpenTrade.
-
-The first registered user will be exchange administrator. 
 
 # Add trade pairs
 
